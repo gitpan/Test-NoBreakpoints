@@ -1,5 +1,5 @@
 #
-# $Id: 01_use.t 159 2004-12-31 02:57:11Z james $
+# $Id: 01_use.t 163 2004-12-31 05:07:16Z james $
 #
 
 use strict;
@@ -15,7 +15,7 @@ my %expected;
 BEGIN {
 
     %expected = (
-        'Test::NoBreakpoints' => '0.12',
+        'Test::NoBreakpoints' => '0.13',
     );
 
     use Test::More;

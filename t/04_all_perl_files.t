@@ -1,9 +1,13 @@
 #
-# $Id: 04_all_perl_files.t 137 2004-11-01 15:38:55Z james $
+# $Id: 04_all_perl_files.t 163 2004-12-31 05:07:16Z james $
 #
 
 BEGIN {
-    use Test::More tests => 1;
+    use Test::More;
+    our $tests = 1;
+    eval "use Test::NoWarnings";
+    $tests++ unless( $@ );
+    plan tests => $tests;
     chdir 't' if -d 't';
     use lib '../lib', '../blib/lib';
 }
@@ -16,8 +20,10 @@ my @expected = sort qw|
    ./01_use.t
    ./02_pod.t
    ./04_all_perl_files.t
-   ./05_no_brkpts_ok.t
-   ./06_all_files_no_brkpts_ok.t
+   ./05_no_breakpoints_ok.t
+   ./06_all_files_no_breakpoints_ok.t
+   ./07_deprecated_warnings.t
+   ./08_deprecated.t
    ./baz/foo.t
    ./baz/gzonk/foo.pl
    ./baz/quux/Foo.pm

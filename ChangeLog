@@ -1,5 +1,5 @@
 #
-# $Id: ChangeLog 159 2004-12-31 02:57:11Z james $
+# $Id: ChangeLog 165 2005-01-13 18:00:45Z james $
 #
 
 2004-01-28  v0.10
@@ -22,6 +22,13 @@
 2004-12-30  v0.12
             - require v0.09 of Test::Tester.  Should fix the blow-up
               reported in cpantesters report #176356.
+
+2005-01-13  v0.13
+            - change 'brkpts' to 'breakpoints' on the advice of Andy Lester
+              The old names still exist, but will emit warnings unless
+              supressed using the warnings pragma.  The old names will
+              be removed after two releases or a reasonable period of time,
+              whichever is longer.
 
 #
 # EOF
