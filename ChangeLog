@@ -1,5 +1,5 @@
 #
-# $Id: ChangeLog 157 2004-12-27 18:24:09Z james $
+# $Id: ChangeLog 159 2004-12-31 02:57:11Z james $
 #
 
 2004-01-28  v0.10
@@ -18,6 +18,10 @@
             - Switch from Test::Builder::Tester to Test::Tester, which has
               a less arcane syntax and isn't as bothered about newline
               differences.
+
+2004-12-30  v0.12
+            - require v0.09 of Test::Tester.  Should fix the blow-up
+              reported in cpantesters report #176356.
 
 #
 # EOF

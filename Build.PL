@@ -1,5 +1,5 @@
 #
-# $Id: Build.PL 157 2004-12-27 18:24:09Z james $
+# $Id: Build.PL 159 2004-12-31 02:57:11Z james $
 #
 
 use Module::Build;
@@ -23,7 +23,7 @@ Module::Build->new(
     build_requires      => {
         Test::More            => 0,
         Test::Exception       => 0,
-        Test::Tester          => 0,
+        Test::Tester          => 0.09,
     },
 
     add_to_cleanup      => [ qw|

@@ -1,5 +1,5 @@
 #
-# $Id: NoBreakpoints.pm 157 2004-12-27 18:24:09Z james $
+# $Id: NoBreakpoints.pm 159 2004-12-31 02:57:11Z james $
 #
 
 =head1 NAME
@@ -45,7 +45,7 @@ use Test::Builder;
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
-$VERSION   = '0.11';
+$VERSION   = '0.12';
 @ISA       = 'Exporter';
 @EXPORT    = qw|all_files_no_brkpts_ok no_brkpts_ok|;
 @EXPORT_OK = qw|all_perl_files|;

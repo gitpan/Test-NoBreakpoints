@@ -1,9 +1,9 @@
 #
-# $Id: 05_no_brkpts_ok.t 157 2004-12-27 18:24:09Z james $
+# $Id: 05_no_brkpts_ok.t 159 2004-12-31 02:57:11Z james $
 #
 
 BEGIN {
-    use Test::Tester;
+    use Test::Tester 0.09;
     use Test::More tests => 46;
     chdir 't' if -d 't';
     use lib '../lib', '../blib/lib';
