@@ -1,5 +1,5 @@
 #
-# $Id: 02_pod.t,v 1.1 2004/01/28 20:11:24 james Exp $
+# $Id: 02_pod.t 137 2004-11-01 15:38:55Z james $
 #
 
 use Test::More;

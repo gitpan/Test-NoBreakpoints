@@ -1,26 +1,36 @@
 #
-# $Id: Build.PL,v 1.1 2004/01/28 20:11:19 james Exp $
+# $Id: Build.PL 157 2004-12-27 18:24:09Z james $
 #
 
 use Module::Build;
 
-my $build = Module::Build->new(
+Module::Build->new(
+
 	module_name         => 'Test::NoBreakpoints',
+
     dist_version_from   => 'lib/Test/NoBreakpoints.pm',
+
 	license             => 'perl',
-    create_makefile_pl  => 'passthrough',
+
+    create_makefile_pl  => 'traditional',
+
     create_readme       => 1,
+
     requires            => {
         Test::Builder         => 0,
-        Test::Builder::Tester => 0,
     },
+
     build_requires      => {
         Test::More            => 0,
         Test::Exception       => 0,
+        Test::Tester          => 0,
     },
-);
 
-$build->create_build_script;
+    add_to_cleanup      => [ qw|
+        Makefile
+    | ],
+
+)->create_build_script;
 
 #
 # EOF
