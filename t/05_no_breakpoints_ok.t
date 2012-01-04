@@ -1,11 +1,7 @@
-#
-# $Id: 05_no_breakpoints_ok.t 163 2004-12-31 05:07:16Z james $
-#
-
 BEGIN {
     use Test::Tester 0.09;
     use Test::More;
-    our $tests = 46;
+    our $tests = 54;
     eval "use Test::NoWarnings";
     $tests++ unless( $@ );
     plan tests => $tests;
@@ -55,7 +51,3 @@ for my $file( qw|bar1 bar2 bar3 bar4 bar5 bar6| ) {
         'no_breakpoints_ok finds simple breakpoint',
     );
 }
-
-#
-# EOF
-

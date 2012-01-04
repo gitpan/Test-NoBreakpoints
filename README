@@ -1,6 +1,9 @@
 NAME
     Test::NoBreakpoints - test that files do not contain soft breakpoints
 
+VERSION
+    version 0.14
+
 SYNOPSIS
      use Test::NoBreakpoints;
      plan tests => $num_tests;
@@ -79,7 +82,7 @@ DEPRECATED FUNCTIONS
         no warnings 'deprecated';
         no_brkpts_ok(...);
       }
-  
+
     In the next release, the deprecated functions will have to be pulled in
     via an import tag. In the release after that, they will cease to be.
 
@@ -90,7 +93,8 @@ ACKNOWLEDGEMENTS
     the logic of all_perl_files from.
 
 BUGS
-    * doesn't catch some breakpoints
+    *   doesn't catch some breakpoints
+
         This is a valid breakpoint:
 
           package DB;
@@ -105,17 +109,20 @@ BUGS
         but neither are currently caught.
 
 TODO
-    * enhance regex to find esoteric setting of breakpoints
+    *   enhance regex to find esoteric setting of breakpoints
+
         If you have a legitimate breakpoint set that isn't caught, please
         send me an example and I'll try to augment the regex to match it.
 
-    * only look at code rather than the entire file
+    *   only look at code rather than the entire file
+
         This is not as easy as simply stripping out POD, because there might
         be inline tests or examples that are code in there (using
         Test::Inline). Granted, those should be caught when the generated .t
         files are themselves tested, but I'd like to make it smarter.
 
-    * not use regular expressions
+    *   not use regular expressions
+
         The ideal way to find a breakpoint would be to compile the code and
         then walk the opcode tree to find places where the breakpoint is
         set. B::FindAmpersand does something similar to this to find use of
@@ -127,12 +134,17 @@ SEE ALSO
 
     Test::Pod
 
-AUTHOR
-    James FitzGibbon <jfitz@CPAN.org>
+AUTHORS
+    *   James FitzGibbon <jfitz@cpan.org>
 
-COPYRIGHT
-    Copyright (c) 2004-2005, James FitzGibbon. All Rights Reserved.
+    *   Apocalypse <APOCAL@cpan.org>
 
-    This module is free software. You may use it under the same terms as
-    perl itself.
+    *   Chisel <chisel@chizography.net>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by James FitzGibbon and Chisel
+    Wright.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 

@@ -1,40 +1,13 @@
-#
-# $Id: NoBreakpoints.pm 164 2005-01-13 18:00:20Z james $
-#
+# ABSTRACT: test that files do not contain soft breakpoints
 
-=head1 NAME
-
-Test::NoBreakpoints - test that files do not contain soft breakpoints
-
-=head1 SYNOPSIS
-
- use Test::NoBreakpoints;
- plan tests => $num_tests;
- no_breakpoints_ok( $file, 'Contains no soft breakpoints' );
-
-Module authors can include the following in a t/nobreakpoints.t file to add
-such checking to a module distribution:
-
-  use Test::More;
-  eval "use Test::NoBreakpoints 0.10";
-  plan skip_all => "Test::NoBreakpoints 0.10 required for testing" if $@;
-  all_files_no_breakpoints_ok();
-
-=head1 DESCRIPTION
-
-I love soft breakpoints (C<$DB::single = 1>) in the Perl debugger. 
-Unfortunately, I have a habit of putting them in my code during development
-and forgetting to take them out before I upload it to CPAN, necessitating a
-hasty fix/package/bundle cycle followed by much cursing.
-
-Test::NoBreakpoints checks that files contain neither the string
-C<$DB::single = 1> nor C<$DB::signal = 1>.  By adding such a test to all my
-modules, I swear less and presumably lighten the load on the CPAN in some
-small way.
-
-=cut
 
 package Test::NoBreakpoints;
+{
+  $Test::NoBreakpoints::VERSION = '0.14';
+}
+{
+  $Test::NoBreakpoints::DIST = 'Test-NoBreakpoints';
+}
 
 use strict;
 
@@ -45,7 +18,6 @@ use Test::Builder;
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
-$VERSION   = '0.13';
 @ISA       = 'Exporter';
 @EXPORT    = qw|
     all_files_no_breakpoints_ok
@@ -102,15 +74,6 @@ sub no_breakpoints_ok($;$)
     
     return $matched ? 0 : 1;
     
-}
-
-# deprecated name for the above
-sub no_brkpts_ok
-{
-
-    warnings::warnif('deprecated', "no_brkpts_ok is deprecated (use no_breakpoints_ok instead)");
-    goto &no_breakpoints_ok;
-
 }
 
 # find all perl files in a given directory
@@ -181,20 +144,47 @@ sub all_files_no_breakpoints_ok
     
 }
 
-# deprecated name for the above
-sub all_files_no_brkpts_ok
-{
-
-    warnings::warnif('deprecated', "all_files_no_brkpts_ok is deprecated (use all_files_no_breakpoints_ok instead)");
-    goto &all_files_no_breakpoints_ok;
-
-}
-
 # keep require happy
 1;
 
 
-__END__
+
+
+=pod
+
+=head1 NAME
+
+Test::NoBreakpoints - test that files do not contain soft breakpoints
+
+=head1 VERSION
+
+version 0.14
+
+=head1 SYNOPSIS
+
+ use Test::NoBreakpoints;
+ plan tests => $num_tests;
+ no_breakpoints_ok( $file, 'Contains no soft breakpoints' );
+
+Module authors can include the following in a t/nobreakpoints.t file to add
+such checking to a module distribution:
+
+  use Test::More;
+  eval "use Test::NoBreakpoints 0.10";
+  plan skip_all => "Test::NoBreakpoints 0.10 required for testing" if $@;
+  all_files_no_breakpoints_ok();
+
+=head1 DESCRIPTION
+
+I love soft breakpoints (C<$DB::single = 1>) in the Perl debugger. 
+Unfortunately, I have a habit of putting them in my code during development
+and forgetting to take them out before I upload it to CPAN, necessitating a
+hasty fix/package/bundle cycle followed by much cursing.
+
+Test::NoBreakpoints checks that files contain neither the string
+C<$DB::single = 1> nor C<$DB::signal = 1>.  By adding such a test to all my
+modules, I swear less and presumably lighten the load on the CPAN in some
+small way.
 
 =head1 FUNCTIONS
 
@@ -255,7 +245,7 @@ lexical warning category:
     no warnings 'deprecated';
     no_brkpts_ok(...);
   }
-  
+
 In the next release, the deprecated functions will have to be pulled in via
 an import tag.  In the release after that, they will cease to be.
 
@@ -318,19 +308,33 @@ L<Test::Builder>
 
 L<Test::Pod>
 
-=head1 AUTHOR
+=head1 AUTHORS
 
-James FitzGibbon <jfitz@CPAN.org>
+=over 4
 
-=head1 COPYRIGHT
+=item *
 
-Copyright (c) 2004-2005, James FitzGibbon.  All Rights Reserved.
+James FitzGibbon <jfitz@cpan.org>
 
-This module is free software. You may use it under the same terms as perl
-itself.
+=item *
+
+Apocalypse <APOCAL@cpan.org>
+
+=item *
+
+Chisel <chisel@chizography.net>
+
+=back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by James FitzGibbon and Chisel Wright.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-#
-# EOF
+
+__END__
 
