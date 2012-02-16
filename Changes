@@ -1,6 +1,11 @@
 Revision history for Test-NoBreakpoints
 
-0.14      2012-01-04 08:31:27 PST8PDT
+0.15      2012-02-16 09:47:12 PST8PDT
+    - fix RT#75059
+    - Fix tests to not exclude author only tests when it isn't appropriate
+      to do so (e.g. file finds / counts)
+
+2012-01-04  v0.14
     - apply patch from https://rt.cpan.org/Ticket/Display.html?id=53609
     - Remove deprecated methods
     - Convert to Dist::Zilla

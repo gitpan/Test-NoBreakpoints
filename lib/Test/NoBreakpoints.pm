@@ -3,7 +3,7 @@
 
 package Test::NoBreakpoints;
 {
-  $Test::NoBreakpoints::VERSION = '0.14';
+  $Test::NoBreakpoints::VERSION = '0.15';
 }
 {
   $Test::NoBreakpoints::DIST = 'Test-NoBreakpoints';
@@ -158,7 +158,7 @@ Test::NoBreakpoints - test that files do not contain soft breakpoints
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 SYNOPSIS
 
